@@ -13,18 +13,16 @@
         display: block;
         margin-bottom: 10px;
       }
-      input[type="number"] {
+      input {
         width: 100%;
-        padding: 5px;
+        padding: 10px;
         margin-top: 5px;
         margin-bottom: 10px;
         border: 1px solid #000;
         box-sizing: border-box;
       }
-      input[type="button"] {
-        padding: 5px 10px;
-        border: 1px solid #000;
-        cursor: pointer;
+      .btn {
+        padding: 10px;
       }
       #interest {
         margin-top: 20px;
@@ -36,18 +34,30 @@
   <body>
     <form>
       <div>
-        <label> Principle Amount : <input type="number" id="p" /> </label>
-      </div>
-      <div>
-        <label> Interest Rate: <input type="number" id="r" /> </label>
-      </div>
-      <div>
         <label>
-          Number of Periods (in year only): <input type="number" id="n" />
+          Principle Amount :
+          <input placeholder="Enter Principle Amount" type="number" id="p" />
         </label>
       </div>
       <div>
-        <input type="button" value="Calculate" onclick="simpleInterest()" />
+        <label>
+          Interest Rate:
+          <input placeholder="Enter Interest Rate" type="number" id="r" />
+        </label>
+      </div>
+      <div>
+        <label>
+          Number of Periods (in year only):
+          <input placeholder="Enter Number of Periods" type="number" id="n" />
+        </label>
+      </div>
+      <div>
+        <input
+          type="button"
+          value="Calculate"
+          onclick="simpleInterest()"
+          class="btn"
+        />
       </div>
       <h1 id="interest"></h1>
     </form>
@@ -59,7 +69,7 @@
         var n = Number(document.getElementById("n").value);
         var ans = document.getElementById("interest");
         var result = (p * r * n) / 100;
-        ans.innerHTML = result;
+        ans.innerHTML = `Simple interest ${result}`;
       }
     </script>
   </body>

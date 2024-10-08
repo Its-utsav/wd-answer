@@ -3,69 +3,159 @@
   <head>
     <title>Registration form with alert</title>
     <style>
-      body {
-        background-position: center;
+      h1 {
+        text-align: center;
+        color: #333;
       }
-      div {
-        margin: 20px;
+      form {
+        max-width: 400px;
+        margin: 40px auto;
+        padding: 20px;
+        border-radius: 8px;
+      }
+      .input-box,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .gender {
+        margin: 5px 0;
+      }
+      .gender-sel,
+      .lang {
+        margin-left: 10px;
+      }
+      #submit-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: gray;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        margin-top: 10px;
+      }
+      #city {
+        width: 90%;
       }
     </style>
   </head>
   <body>
-    <h1 style="text-align: center">Registration Form</h1>
+    <h1>Registration Form</h1>
     <form onsubmit="handleSubmit()">
       <div>
-        <label>
-          Name: <input type="text" name="name" placeholder="Enter Name" />
-        </label>
-      </div>
-
-      <div>
-        <label>
-          Email: <input type="email" name="email" placeholder="Enter Email" />
-        </label>
-      </div>
-      <div>
-        <label>
-          Phone No. :
-          <input
-            type="number"
-            name="phoneno"
-            placeholder="Enter Phone No."
-            maxlength="10"
-          />
-        </label>
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter Name"
+          class="input-box"
+        />
       </div>
       <div>
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter Email"
+          class="input-box"
+        />
+      </div>
+      <div>
+        <label for="phoneno">Phone No.:</label>
+        <input
+          type="number"
+          id="phoneno"
+          name="phoneno"
+          placeholder="Enter Phone No."
+          maxlength="10"
+          class="input-box"
+        />
+      </div>
+      <div class="gender">
         Gender:
-        <label>
-          Male :
-          <input type="radio" name="gender" value="male" />
-        </label>
-
-        <label>
-          Female :
-          <input type="radio" name="gender" value="female" />
-        </label>
+        <label for="male">Male:</label>
+        <input
+          type="radio"
+          id="male"
+          name="gender"
+          value="male"
+          class="gender-sel"
+        />
+        <label for="female">Female:</label>
+        <input
+          type="radio"
+          id="female"
+          name="gender"
+          value="female"
+          class="gender-sel"
+        />
       </div>
       <div>
-        <label
-          >city
-          <select name="city" id="">
-            <option value="navsari" selected>Navsari</option>
-            <option value="surat">Surat</option>
-            <option value="valsad">Valsad</option>
-          </select>
-        </label>
+        <label for="city">City:</label>
+        <select id="city" name="city">
+          <option value="navsari" selected>Navsari</option>
+          <option value="surat">Surat</option>
+          <option value="valsad">Valsad</option>
+        </select>
       </div>
       <div>
-        <input type="submit" />
+        <label>Known Programming Languages:</label>
+        <label for="html">HTML</label>
+        <input
+          type="checkbox"
+          name="languages"
+          id="html"
+          class="lang"
+          value="html"
+        />
+        <label for="css">CSS</label>
+        <input
+          type="checkbox"
+          id="css"
+          name="languages"
+          value="css"
+          class="lang"
+        />
+        <label for="js">JavaScript</label>
+        <input
+          type="checkbox"
+          id="js"
+          name="languages"
+          value="js"
+          class="lang"
+        />
+        <label for="c">C</label>
+        <input type="checkbox" id="c" name="languages" value="c" class="lang" />
+        <label for="cpp">C++</label>
+        <input
+          type="checkbox"
+          id="cpp"
+          name="languages"
+          value="cpp"
+          class="lang"
+        />
+        <label for="python">Python</label>
+        <input
+          type="checkbox"
+          id="python"
+          name="languages"
+          value="python"
+          class="lang"
+        />
+      </div>
+      <div>
+        <input type="submit" id="submit-btn" />
       </div>
     </form>
 
     <script>
       function handleSubmit() {
-        alert("Congratulations Form Submitted Successfully");
+        alert("Congratulations! Form Submitted Successfully");
       }
     </script>
   </body>

@@ -25,6 +25,12 @@
         padding: 10px;
         margin: 5px 1%;
       }
+      .btn-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
       #output {
         margin-top: 20px;
         font-weight: bold;
@@ -45,19 +51,25 @@
           <input type="number" id="num2" />
         </label>
 
-        <input
-          type="button"
-          value="Addition"
-          onclick="calculate('add')"
-          name="add"
-        />
-        <input type="button" value="Subtractions" onclick="calculate('sub')" />
-        <input
-          type="button"
-          value="multiplication"
-          onclick="calculate('multi')"
-        />
-        <input type="button" value="Division" onclick="calculate('divide')" />
+        <div class="btn-div">
+          <input
+            type="button"
+            value="Addition"
+            onclick="calculate('addition')"
+            name="Addition"
+          />
+          <input
+            type="button"
+            value="Subtractions"
+            onclick="calculate('subtractions')"
+          />
+          <input
+            type="button"
+            value="multiplication"
+            onclick="calculate('multiplication')"
+          />
+          <input type="button" value="Division" onclick="calculate('divide')" />
+        </div>
         <p id="output"></p>
       </form>
     </div>
@@ -65,20 +77,24 @@
       function calculate(type) {
         var n1 = Number(document.getElementById("num1").value);
         var n2 = Number(document.getElementById("num2").value);
+        if (!n1 || !n2) {
+          alert("Enter Two valid number");
+          return;
+        }
         var ans = document.getElementById("output");
         switch (type) {
-          case "add":
-            ans.innerHTML = `${n1} + ${n2} = ${n1 + n2}`;
+          case "addition":
+            ans.innerHTML = `Addition of ${n1} + ${n2} = ${n1 + n2}`;
             break;
-          case "sub":
-            ans.innerHTML = `${n1} - ${n2} = ${n1 - n2}`;
+          case "subtractions":
+            ans.innerHTML = `Subtractions of ${n1} - ${n2} = ${n1 - n2}`;
             break;
-          case "multi":
-            ans.innerHTML = `${n1} * ${n2} = ${n1 * n2}`;
+          case "multiplication":
+            ans.innerHTML = `Multiplication of ${n1} * ${n2} = ${n1 * n2}`;
             break;
           case "divide":
             if (n2 != 0) {
-              ans.innerHTML = `${n1} / ${n2} = ${n1 / n2}`;
+              ans.innerHTML = `Division of ${n1} / ${n2} = ${n1 / n2}`;
             } else {
               ans.innerHTML = "Can't divide by zero .";
             }
