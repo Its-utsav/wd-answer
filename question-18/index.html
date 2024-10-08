@@ -1,71 +1,153 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration Form</title>
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <title>Registration Form with Bootstrap</title>
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css" />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .form-group label {
+        font-weight: bold;
+      }
+      .btn {
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <h2 class="mt-5">Registration Form</h2>
-      <form>
+      <h1 class="text-center">Registration Form</h1>
+      <form id="lol">
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="firstName">Name:</label>
           <input
             type="text"
             class="form-control"
-            id="username"
-            placeholder="Enter username"
+            id="name"
+            placeholder="Enter Your Name"
           />
         </div>
         <div class="form-group">
-          <label for="email">Email address</label>
+          <label for="email">Email:</label>
           <input
             type="email"
             class="form-control"
             id="email"
-            placeholder="Enter email"
+            placeholder="Enter Your Email"
           />
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="phoneNumber">Phone Number:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="phoneNumber"
+            maxlength="10"
+            placeholder="Enter Your Phone Number"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
           <input
             type="password"
             class="form-control"
             id="password"
-            placeholder="Password"
+            maxlength="10"
+            max="10"
+            placeholder="Enter Password"
           />
         </div>
         <div class="form-group">
-          <label for="confirm-password">Confirm Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="confirm-password"
-            placeholder="Confirm Password"
-          />
+          <label>Gender:</label>
+          <label class="form-check-label mr-3">
+            <input type="radio" name="gender" value="male" /> Male
+          </label>
+          <label class="form-check-label">
+            <input type="radio" name="gender" value="female" /> Female
+          </label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group">
+          <label for="city">City:</label>
+          <select name="city" id="city" class="custom-select">
+            <option value="navsari">Navsari</option>
+            <option value="surat">Surat</option>
+            <option value="valsad">Valsad</option>
+            <option value="vapi">Vapi</option>
+            <option value="bilimora">Bilimora</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Known Programming Language:</label>
+          <label class="form-check-label ml-2">
+            <input type="checkbox" name="language" value="html" /> HTML
+          </label>
+          <label class="form-check-label ml-2">
+            <input type="checkbox" name="language" value="css" /> CSS
+          </label>
+          <label class="form-check-label ml-2">
+            <input type="checkbox" name="language" value="js" /> JavaScript
+          </label>
+          <label class="form-check-label ml-2">
+            <input type="checkbox" name="language" value="cpp" /> C++
+          </label>
+          <label class="form-check-label ml-2">
+            <input type="checkbox" name="language" value="c" /> C
+          </label>
+          <label class="form-check-label ml-2">
+            <input type="checkbox" name="language" value="sql" /> SQL
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="address" class="form-check-label">Address</label>
+          <textarea name="" class="form-control" id="address"></textarea>
+        </div>
+        <div class="form-group">
+          <input
+            type="submit"
+            value="Register"
+            class="btn btn-primary"
+            onclick="validateForm(event)"
+          />
+          <input type="reset" value="Reset" class="btn btn-secondary mt-2" />
+        </div>
       </form>
     </div>
+    <script>
+      function validateForm(e) {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var pnumber = document.getElementById("phoneNumber").value;
+        var password = document.getElementById("password").value;
+        var gender = document.getElementsByName("gender");
+        var lang = document.getElementsByName("language");
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  </body>
-</html> -->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>question 19</title>
-  </head>
-  <body>
-    <h1>Work in progress !!!!!!!!!!!!!</h1>
+        if (!name) {
+          alert("Enter Valid Name");
+        }
+
+        var email_at = email.indexOf("@");
+        var email_dot = email.indexOf(".");
+
+        if (email_at < 1 || email_dot - email_at < 2) {
+          alert("Enter Valid email");
+        }
+        if (isNaN(pnumber) || pnumber.length != 10) {
+          alert("Phone number digit must be 10");
+        }
+        if (gender[0].checked == false && gender[1].checked == false) {
+          alert("Select Gender");
+        }
+        var temp = 0;
+        for (let i = 0; i < lang.length; i++) {
+          if (lang[i].checked) {
+            temp++;
+          }
+        }
+        if (temp < 2) {
+          alert("At least you should know 2 language");
+        }
+      }
+    </script>
   </body>
 </html>
