@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Text Field Placeholder</title>
+    <style>
+      ::placeholder {
+        font-weight: 700;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+      input {
+        padding: 10px;
+      }
+      input:focus {
+        border: none;
+
+        background-color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label>
+        Username :-
+        <input
+          type="text"
+          placeholder="Enter Your username"
+          required
+          title="username felid"
+        />
+      </label>
+      <input type="button" value="submit" class="btn" />
+    </form>
+  </body>
+</html>

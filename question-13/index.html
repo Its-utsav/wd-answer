@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>basic mathematical operations</title>
+    <style>
+      form {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #000;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #000;
+        box-sizing: border-box;
+      }
+      input[type="button"] {
+        width: 48%;
+        padding: 10px;
+        margin: 5px 1%;
+      }
+      #output {
+        margin-top: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <form>
+        <label>
+          First Number :
+          <input type="number" id="num1" />
+        </label>
+
+        <label>
+          Second Number :
+          <input type="number" id="num2" />
+        </label>
+
+        <input
+          type="button"
+          value="Addition"
+          onclick="calculate('add')"
+          name="add"
+        />
+        <input type="button" value="Subtractions" onclick="calculate('sub')" />
+        <input
+          type="button"
+          value="multiplication"
+          onclick="calculate('multi')"
+        />
+        <input type="button" value="Division" onclick="calculate('divide')" />
+        <p id="output"></p>
+      </form>
+    </div>
+    <script>
+      function calculate(type) {
+        var n1 = Number(document.getElementById("num1").value);
+        var n2 = Number(document.getElementById("num2").value);
+        var ans = document.getElementById("output");
+        switch (type) {
+          case "add":
+            ans.innerHTML = `${n1} + ${n2} = ${n1 + n2}`;
+            break;
+          case "sub":
+            ans.innerHTML = `${n1} - ${n2} = ${n1 - n2}`;
+            break;
+          case "multi":
+            ans.innerHTML = `${n1} * ${n2} = ${n1 * n2}`;
+            break;
+          case "divide":
+            if (n2 != 0) {
+              ans.innerHTML = `${n1} / ${n2} = ${n1 / n2}`;
+            } else {
+              ans.innerHTML = "Can't divide by zero .";
+            }
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Registration form with alert</title>
+    <style>
+      body {
+        background-position: center;
+      }
+      div {
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">Registration Form</h1>
+    <form onsubmit="handleSubmit()">
+      <div>
+        <label>
+          Name: <input type="text" name="name" placeholder="Enter Name" />
+        </label>
+      </div>
+
+      <div>
+        <label>
+          Email: <input type="email" name="email" placeholder="Enter Email" />
+        </label>
+      </div>
+      <div>
+        <label>
+          Phone No. :
+          <input
+            type="number"
+            name="phoneno"
+            placeholder="Enter Phone No."
+            maxlength="10"
+          />
+        </label>
+      </div>
+      <div>
+        Gender:
+        <label>
+          Male :
+          <input type="radio" name="gender" value="male" />
+        </label>
+
+        <label>
+          Female :
+          <input type="radio" name="gender" value="female" />
+        </label>
+      </div>
+      <div>
+        <label
+          >city
+          <select name="city" id="">
+            <option value="navsari" selected>Navsari</option>
+            <option value="surat">Surat</option>
+            <option value="valsad">Valsad</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <input type="submit" />
+      </div>
+    </form>
+
+    <script>
+      function handleSubmit() {
+        alert("Congratulations Form Submitted Successfully");
+      }
+    </script>
+  </body>
+</html>

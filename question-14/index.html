@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Read values from textbox</title>
+    <style>
+      form {
+        width: 300px;
+        margin: 0 auto;
+        padding: 10px;
+        border: 1px solid #000;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="number"] {
+        width: 100%;
+        padding: 5px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #000;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div>
+        <label>
+          Number 1 :
+          <input
+            type="number"
+            id="n1"
+            placeholder="Enter first number"
+            onblur="add()"
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Number 2 :
+          <input
+            type="number"
+            id="n2"
+            placeholder="Enter second number"
+            onblur="add()"
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Total :
+          <input type="number" id="ans" placeholder="answer will appear here" />
+        </label>
+      </div>
+    </form>
+    <script>
+      function add() {
+        var n1 = Number(document.getElementById("n1").value);
+        var n2 = Number(document.getElementById("n2").value);
+        var ans = document.getElementById("ans");
+        ans.value = n1 + n2;
+      }
+    </script>
+  </body>
+</html>

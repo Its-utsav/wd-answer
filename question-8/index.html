@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vertically & Horizontally divide page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        color: aliceblue;
+        font-size: 30px;
+      }
+      main {
+        height: 100vh;
+      }
+      .top {
+        height: 50%;
+        display: flex;
+        border: 1px solid red;
+      }
+      .bottom {
+        height: 50%;
+      }
+      .box {
+        width: 50%;
+        height: 100%;
+      }
+      .bottom div {
+        height: 50%;
+        width: 100%;
+      }
+      .bottom-left {
+        background: green;
+      }
+      .bottom-right {
+        background: pink;
+      }
+      .top-top {
+        background: yellow;
+        color: red;
+      }
+      .top-bottom {
+        background: #1157f1;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="bottom">
+        <div class="box bottom-left">Vertically - top</div>
+        <div class="box bottom-right">Vertically - bottom</div>
+      </div>
+      <div class="top">
+        <div class="box top-top">Horizontally - left</div>
+        <div class="box top-bottom">Horizontally - right</div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+productName,price,qty,discount,net_price,total_amt
+phone,12000,2,300,11700,24000
+formal shirt,200,20,30,170,4000
+laptop,100000,1,10000,90000,100000
