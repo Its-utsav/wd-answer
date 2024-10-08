@@ -17,6 +17,3 @@ document.addEventListener("DOMContentLoaded", () => {
         "This link will deactivate with in few days , do not share this link"
     );
 });
-function showAlert() {
-    alert("Soft copy link will be set when all question are done ... ");
-}
