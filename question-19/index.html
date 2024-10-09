@@ -1,51 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Responsive Website</title>
-    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Competition World</title>
+    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css" />
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">My Website</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="services.html">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="register.html">Register</a>
-          </li>
-        </ul>
+    <!-- Navbar -->
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-12 col-md-8 mx-auto">
+          <a
+            href="index.html"
+            class="btn btn-outline-primary btn-block mb-3 py-2"
+            >Home</a
+          >
+          <a
+            href="competition.html"
+            class="btn btn-outline-primary btn-block mb-3 py-2"
+            >Competitions</a
+          >
+          <a
+            href="register.html"
+            class="btn btn-outline-primary btn-block mb-3 py-2"
+            >Register</a
+          >
+          <a
+            href="about.html"
+            class="btn btn-outline-primary btn-block mb-3 py-2"
+            >About
+          </a>
+          <a
+            href="sponsors.html"
+            class="btn btn-outline-primary btn-block mb-3 py-2"
+            >Sponsors
+          </a>
+        </div>
       </div>
-    </nav>
+    </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container">
-        <h1>Welcome to My Responsive Website</h1>
-        <p>Explore our services and learn more about us.</p>
+    <div class="container mt-5">
+      <div class="jumbotron">
+        <h1 class="display-4">Welcome to My System Competitions!</h1>
+        <p class="lead">
+          Join our exciting competitions, test your skills, and win amazing
+          prizes! Choose from a variety of categories including coding, design,
+          and quizzes.
+        </p>
+        <hr class="my-4" />
+        <p>Explore our competitions and find the one that suits you best.</p>
+        <a class="btn btn-primary btn-lg" href="competition.html" role="button"
+          >Explore Competitions</a
+        >
       </div>
-    </section>
+    </div>
+
+    <div class="container mt-5">
+      <h2 class="mb-4">Why Participate?</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Improve Your Skills</h5>
+              <p class="card-text">
+                Whether it's programming, designing, or solving logic puzzles,
+                participating in competitions helps you sharpen your skills.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Win Exciting Prizes</h5>
+              <p class="card-text">
+                We have amazing prizes for the winners in each category. Show
+                off your talent and claim your prize!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Showcase Your Creativity</h5>
+              <p class="card-text">
+                From designing logos to creating websites, our competitions
+                offer a platform for you to express your creativity and
+                innovation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <span class="text-muted"
+          >Competition World © 2024. All rights reserved.</span
+        >
+      </div>
+    </footer>
   </body>
 </html>
