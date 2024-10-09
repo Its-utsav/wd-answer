@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Registration Form with Bootstrap</title>
+    <title>Registration Form</title>
     <link rel="stylesheet" href="../bootstrap/bootstrap.min.css" />
     <style>
       body {
@@ -17,10 +17,10 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="text-center">Registration Form</h1>
-      <form id="lol" action="done.html">
+      <h1 class="text-center">Registration Form for Competition</h1>
+      <form id="form" action="done.html">
         <div class="form-group">
-          <label for="firstName">Name:</label>
+          <label for="name">Name:</label>
           <input
             type="text"
             class="form-control"
@@ -28,6 +28,7 @@
             name="name"
             placeholder="Enter Your Name"
           />
+          <p id="namewarn" class="invalid-feedback" style="display: none"></p>
         </div>
         <div class="form-group">
           <label for="email">Email:</label>
@@ -38,6 +39,7 @@
             name="email"
             placeholder="Enter Your Email"
           />
+          <p id="emailwarn" class="invalid-feedback" style="display: none"></p>
         </div>
         <div class="form-group">
           <label for="phoneNumber">Phone Number:</label>
@@ -49,6 +51,7 @@
             maxlength="10"
             placeholder="Enter Your Phone Number"
           />
+          <p id="phonewarn" class="invalid-feedback" style="display: none"></p>
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
@@ -57,9 +60,9 @@
             class="form-control"
             id="password"
             maxlength="10"
-            max="10"
             placeholder="Enter Password"
           />
+          <p id="passwarn" class="invalid-feedback" style="display: none"></p>
         </div>
         <div class="form-group">
           <label>Gender:</label>
@@ -69,6 +72,7 @@
           <label class="form-check-label">
             <input type="radio" name="gender" value="female" /> Female
           </label>
+          <p id="genderwarn" class="invalid-feedback" style="display: none"></p>
         </div>
         <div class="form-group">
           <label for="city">City:</label>
@@ -100,57 +104,100 @@
           <label class="form-check-label ml-2">
             <input type="checkbox" name="language" value="sql" /> SQL
           </label>
+          <p id="langwarn" class="invalid-feedback" style="display: none"></p>
         </div>
         <div class="form-group">
           <label for="address" class="form-check-label">Address</label>
-          <textarea name="" class="form-control" id="address"></textarea>
+          <textarea name="address" class="form-control" id="address"></textarea>
         </div>
         <div class="form-group">
-          <input
-            type="submit"
-            value="Register"
-            class="btn btn-primary"
-            onclick="validateForm(event)"
-          />
+          <input type="submit" value="Register" class="btn btn-primary" />
           <input type="reset" value="Reset" class="btn btn-secondary mt-2" />
         </div>
       </form>
     </div>
     <script>
-      function validateForm(e) {
-        var name = document.getElementById("name").value;
-        var email = document.getElementById("email").value;
-        var pnumber = document.getElementById("phoneNumber").value;
-        var password = document.getElementById("password").value;
-        var gender = document.getElementsByName("gender");
-        var lang = document.getElementsByName("language");
+      document.addEventListener("DOMContentLoaded", function () {
+        var form = document.getElementById("form");
 
-        if (!name) {
-          alert("Enter Valid Name");
-        }
+        form.addEventListener("submit", validateForm);
 
-        var email_at = email.indexOf("@");
-        var email_dot = email.indexOf(".");
+        function validateForm(e) {
+          e.preventDefault();
 
-        if (email_at < 1 || email_dot - email_at < 2) {
-          alert("Enter Valid email");
-        }
-        if (isNaN(pnumber) || pnumber.length != 10) {
-          alert("Phone number digit must be 10");
-        }
-        if (gender[0].checked == false && gender[1].checked == false) {
-          alert("Select Gender");
-        }
-        var temp = 0;
-        for (let i = 0; i < lang.length; i++) {
-          if (lang[i].checked) {
-            temp++;
+          var valid = true;
+          var nameWarn = document.getElementById("namewarn");
+          var emailWarn = document.getElementById("emailwarn");
+          var phoneWarn = document.getElementById("phonewarn");
+          var passWarn = document.getElementById("passwarn");
+          var genderWarn = document.getElementById("genderwarn");
+          var langWarn = document.getElementById("langwarn");
+
+          // nameWarn.style.display = "none";
+          // emailWarn.style.display = "none";
+          // phoneWarn.style.display = "none";
+          // passWarn.style.display = "none";
+          // genderWarn.style.display = "none";
+          // langWarn.style.display = "none";
+
+          var name = document.getElementById("name").value;
+          var email = document.getElementById("email").value;
+          var pnumber = document.getElementById("phoneNumber").value;
+          var password = document.getElementById("password").value;
+          var gender = document.getElementsByName("gender");
+          var lang = document.getElementsByName("language");
+
+          if (!name || !isNaN(name)) {
+            nameWarn.textContent = "Enter a valid name.";
+            nameWarn.style.display = "block";
+            valid = false;
+          }
+
+          var email_at = email.indexOf("@");
+          var email_dot = email.indexOf(".");
+          if (email_at < 1 || email_dot - email_at < 2) {
+            emailWarn.textContent = "Enter a valid email.";
+            emailWarn.style.display = "block";
+            valid = false;
+          }
+
+          if (isNaN(pnumber) || pnumber.length != 10) {
+            phoneWarn.textContent = "Phone number must be 10 digits.";
+            phoneWarn.style.display = "block";
+            valid = false;
+          }
+
+          if (password.length < 4) {
+            passWarn.textContent =
+              "Password must be at least 4 characters long.";
+            passWarn.style.display = "block";
+            valid = false;
+          }
+
+          if (!gender[0].checked && !gender[1].checked) {
+            genderWarn.textContent = "Select a gender.";
+            genderWarn.style.display = "block";
+            valid = false;
+          }
+
+          var temp = 0;
+          for (let i = 0; i < lang.length; i++) {
+            if (lang[i].checked) {
+              temp++;
+            }
+          }
+
+          if (temp < 2) {
+            langWarn.textContent = "Select at least 2 programming languages.";
+            langWarn.style.display = "block";
+            valid = false;
+          }
+
+          if (valid) {
+            form.submit();
           }
         }
-        if (temp < 2) {
-          alert("At least you should know 2 language");
-        }
-      }
+      });
     </script>
   </body>
 </html>
