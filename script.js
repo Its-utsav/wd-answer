@@ -3,7 +3,7 @@ function checkwindowssize() {
     let width = (window.screen.availWidth)
 
     if (height > width) {
-        alert("Page only case access on desktop device , do you to responsiveness ")
+        alert("Page only case access on desktop device , do you to responsiveness issue")
         alert('Redirect to google')
         window.location.replace('https://www.google.com')
     }
@@ -12,8 +12,4 @@ function checkwindowssize() {
 
 checkwindowssize()
 
-document.addEventListener("DOMContentLoaded", () => {
-    alert(
-        "This link will deactivate with in few days , do not share this link"
-    );
-});
+

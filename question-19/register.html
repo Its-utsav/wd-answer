@@ -144,6 +144,11 @@
             nameWarn.textContent = "Enter a valid name.";
             nameWarn.style.display = "block";
             valid = false;
+            console.log("on");
+          } else {
+            nameWarn.textContent = null;
+            nameWarn.style.display = "none";
+            valid = true;
           }
 
           var email_at = email.indexOf("@");
@@ -152,12 +157,20 @@
             emailWarn.textContent = "Enter a valid email.";
             emailWarn.style.display = "block";
             valid = false;
+          } else {
+            emailWarn.textContent = null;
+            emailWarn.style.display = "none";
+            valid = true;
           }
 
           if (isNaN(pnumber) || pnumber.length != 10) {
             phoneWarn.textContent = "Phone number must be 10 digits.";
             phoneWarn.style.display = "block";
             valid = false;
+          } else {
+            phoneWarn.textContent = null;
+            phoneWarn.style.display = "none";
+            valid = true;
           }
 
           if (password.length < 4) {
@@ -165,12 +178,20 @@
               "Password must be at least 4 characters long.";
             passWarn.style.display = "block";
             valid = false;
+          } else {
+            passWarn.textContent = null;
+            passWarn.style.display = "none";
+            valid = true;
           }
 
           if (!gender[0].checked && !gender[1].checked) {
             genderWarn.textContent = "Select a gender.";
             genderWarn.style.display = "block";
             valid = false;
+          } else {
+            genderWarn.textContent = null;
+            genderWarn.style.display = "none";
+            valid = true;
           }
 
           var temp = 0;
@@ -184,6 +205,10 @@
             langWarn.textContent = "Select at least 2 programming languages.";
             langWarn.style.display = "block";
             valid = false;
+          } else {
+            langWarn.textContent = null;
+            langWarn.style.display = "none";
+            valid = true;
           }
 
           if (valid) {
