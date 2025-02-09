@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: cursive;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100%;
+}
+main {
+  height: 50vh;
+}
+main h1 {
+  text-align: center;
+  font-size: 50px;
+}
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+form input {
+  margin: 20px auto;
+  padding: 10px;
+}
+
+form button {
+  height: 45px;
+  width: 150px;
+}
+form button:hover {
+  background: black;
+  color: #fff;
+  cursor: pointer;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Image move using html css js</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      img {
+        background-position: center;
+        height: 100%;
+        width: 100%;
+        transition: all ease-in 0.3s;
+      }
+      .btn {
+        width: 70px;
+        height: 40px;
+        margin: 10px;
+        cursor: pointer;
+        text-transform: capitalize;
+        border: none;
+        border-radius: 20px;
+      }
+      .btn:not(:hover) {
+        background-color: #c4e1f6;
+      }
+      .btn:hover {
+        background-color: #feee91;
+      }
+      .img-div {
+        height: 400px;
+        width: 400px;
+        margin-top: 10px;
+        border: 1px solid black;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button type="button" class="btn" value="up" onclick="move('up')">
+        up
+      </button>
+      <button type="button" class="btn" value="down" onclick="move('down')">
+        down
+      </button>
+      <button type="button" class="btn" value="up" onclick="move('left')">
+        left
+      </button>
+      <button type="button" class="btn" value="down" onclick="move('right')">
+        right
+      </button>
+      <button type="button" class="btn" value="down" onclick="move('reset')">
+        reset
+      </button>
+    </div>
+    <div class="img-div">
+      <img src="image.png" alt="flower img" id="img" />
+    </div>
+    <script>
+      function move(type) {
+        var img = document.getElementById("img");
+        switch (type) {
+          case "up":
+            img.style.transform = "translateY(-10px)";
+            break;
+          case "down":
+            img.style.transform = "translateY(10px)";
+            break;
+          case "left":
+            img.style.transform = "translateX(-10px)";
+            break;
+          case "right":
+            img.style.transform = "translateX(10px)";
+            break;
+          case "reset":
+            img.style.transform = "translateX(0)";
+        }
+      }
+    </script>
+  </body>
+</html>

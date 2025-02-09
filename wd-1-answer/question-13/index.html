@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>basic mathematical operations</title>
+    <style>
+      form {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #000;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #000;
+        box-sizing: border-box;
+      }
+      input[type="button"] {
+        width: 48%;
+        padding: 10px;
+        margin: 5px 1%;
+      }
+      .btn-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      #output {
+        margin-top: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <form>
+        <label>
+          First Number :
+          <input type="number" id="num1" />
+        </label>
+
+        <label>
+          Second Number :
+          <input type="number" id="num2" />
+        </label>
+
+        <div class="btn-div">
+          <input
+            type="button"
+            value="Addition"
+            onclick="calculate('addition')"
+            name="Addition"
+          />
+          <input
+            type="button"
+            value="Subtractions"
+            onclick="calculate('subtractions')"
+          />
+          <input
+            type="button"
+            value="multiplication"
+            onclick="calculate('multiplication')"
+          />
+          <input type="button" value="Division" onclick="calculate('divide')" />
+        </div>
+        <p id="output"></p>
+      </form>
+    </div>
+    <script>
+      function calculate(type) {
+        var n1 = Number(document.getElementById("num1").value);
+        var n2 = Number(document.getElementById("num2").value);
+        if (!n1 || !n2) {
+          alert("Enter Two valid number");
+          return;
+        }
+        var ans = document.getElementById("output");
+        switch (type) {
+          case "addition":
+            ans.innerHTML = `Addition of ${n1} + ${n2} = ${n1 + n2}`;
+            break;
+          case "subtractions":
+            ans.innerHTML = `Subtractions of ${n1} - ${n2} = ${n1 - n2}`;
+            break;
+          case "multiplication":
+            ans.innerHTML = `Multiplication of ${n1} * ${n2} = ${n1 * n2}`;
+            break;
+          case "divide":
+            if (n2 != 0) {
+              ans.innerHTML = `Division of ${n1} / ${n2} = ${n1 / n2}`;
+            } else {
+              ans.innerHTML = "Can't divide by zero .";
+            }
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>
