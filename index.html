@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Fast access</title>
+    <style>
+      body {
+        background-color: #1c1c1c;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding-top: 50px;
+      }
+
+      .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 200px;
+        margin: 0 auto;
+      }
+
+      .btn {
+        padding: 15px;
+        border: 2px solid white;
+        border-radius: 12px;
+        background-color: transparent;
+        color: white;
+        font-size: 18px;
+        text-decoration: none;
+        text-align: center;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .btn:hover {
+        background-color: white;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>All link will open in new Tab</h1>
+    <div class="button-container">
+      <a class="btn" href="../wd-answer/WD-1/index.html" target="_blank"
+        >WD 1 - answer</a
+      >
+      <a class="btn" href="../wd-answer/WD-2/index.html" target="_blank"
+        >WD 2 - answer</a
+      >
+    </div>
+
+    <script src="../WD-1/script.js"></script>
+  </body>
+</html>
