@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Changing background image</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 100vh;
+        width: 100vw;
+      }
+      #btn {
+        height: 40px;
+        width: 200px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" id="btn">Change background-image</button>
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#btn").click(function () {
+          $("body").css({
+            backgroundImage: "url('img.png')",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

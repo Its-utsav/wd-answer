@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Select box chnages</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 20px;
+        display: flex;
+      }
+      form {
+        margin-bottom: 10px;
+      }
+      select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        margin-right: 10px;
+      }
+      button {
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        background-color: #eee;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <select name="city" id="city">
+        <option value="Navsari">Navsari</option>
+        <option value="Surat" selected>Surat</option>
+        <option value="Vapi">Vapi</option>
+        <option value="Valsad">Valsad</option>
+        <option value="Pune">Pune</option>
+      </select>
+    </form>
+    <button id="btn">Make Updates</button>
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var selRef = $("#city");
+        $("#btn").click(function () {
+          selRef.html("");
+          selRef.html('<option value="Navsari" selected>Navsari</option>');
+        });
+      });
+    </script>
+  </body>
+</html>

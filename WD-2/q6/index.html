@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Textbox value</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      form {
+        padding: 20px;
+      }
+      textarea {
+        width: 100%;
+        padding: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        background-color: #f8f8f8;
+        margin: 10px;
+        cursor: pointer;
+      }
+      p {
+        margin: 10px;
+      }
+      h2 {
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="inputArea"></label>
+      Write anything
+      <textarea cols="50" rows="4" id="inputArea" name="comment"></textarea>
+    </form>
+    <button id="getbtn">Get Text content of text area</button>
+    <p id="res"></p>
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#getbtn").click(function () {
+          if ($("#inputArea").val().length > 0) {
+            $("#res").text($("#inputArea").val());
+          } else {
+            $("#res").text("Text area is empty");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

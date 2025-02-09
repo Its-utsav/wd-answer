@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zebra Strip</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+      }
+      table {
+        height: 100%;
+        width: 100%;
+      }
+      table th {
+        padding: 10px;
+      }
+      table tr {
+        border: 1px solid black;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Course</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Utsav</td>
+          <td>18</td>
+          <td>BCA</td>
+        </tr>
+        <tr>
+          <td>Sam</td>
+          <td>24</td>
+          <td>B. Com</td>
+        </tr>
+
+        <tr>
+          <td>Elon</td>
+          <td>24</td>
+          <td>BBA</td>
+        </tr>
+
+        <tr>
+          <td>Parth</td>
+          <td>25</td>
+          <td>MBA</td>
+        </tr>
+
+        <tr>
+          <td>Ritesh</td>
+          <td>24</td>
+          <td>B. Com</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var td = $("tr:even");
+        td.css("background", "black");
+        td.css("color", "white");
+        td.css("border-color", "black");
+      });
+    </script>
+  </body>
+</html>

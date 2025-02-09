@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Creating DIV using jQuery</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .heading {
+        font-family: cursive;
+        letter-spacing: 2px;
+        background-color: yellow;
+        padding: 10px;
+        color: red;
+      }
+
+      .btn {
+        padding: 15px;
+        border: 1px solid red;
+        width: 100px;
+        background: #fffaec;
+        border-radius: 10px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="heading" id="heading">Removing All CSS classes Using jQuery</h1>
+    <button class="btn">Clear CSS</button>
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("button").click(function () {
+          var allElements = $("*");
+          allElements.removeClass();
+          $("#heading").text("All CSS classes has been removed");
+          $("button").attr("disabled");
+        });
+      });
+    </script>
+  </body>
+</html>

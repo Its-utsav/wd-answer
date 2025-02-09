@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Remove style attribute</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .btn {
+        padding: 15px;
+        border: 1px solid red;
+        width: 100px;
+        background: #fffaec;
+        border-radius: 10px;
+        margin: 10px;
+      }
+      h2 {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="heading">
+      Program that remove style attribute that add with
+      <mark>css()</mark> function in jQuery
+    </h1>
+    <h2>Status <span id="res">Click on Button to see changes</span></h2>
+    <button class="btn" id="addcss">Add CSS</button>
+    <button class="btn" id="clearcss">Clear CSS</button>
+    <p>Hello , World !!! My name is Utsav</p>
+
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var p = $("p");
+        $("#addcss").click(function () {
+          p.css({
+            margin: "20px",
+            border: "2px solid red",
+            padding: "20px",
+            fontFamily: "cursive",
+            color: "yellow",
+            background: "red",
+          });
+          $("#res").text(" CSS ADDED");
+        });
+        $("#clearcss").click(function () {
+          p.removeAttr("style");
+          $("#res").text(" CSS REMOVED");
+        });
+      });
+    </script>
+  </body>
+</html>

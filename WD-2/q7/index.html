@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Disable / Enable Submit button</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        line-height: 1.5;
+        margin: 20px;
+      }
+      h1 {
+        margin-bottom: 10px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        margin-bottom: 5px;
+      }
+      input {
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .btn {
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        background-color: #eee;
+        cursor: pointer;
+        width: fit-content;
+      }
+      p {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Driving License form</h1>
+    <form>
+      <label>
+        Name <input type="text" name="username" placeholder="Enter Name" />
+      </label>
+      <label>
+        Age
+        <input
+          type="number"
+          name="userage"
+          id="ageinput"
+          placeholder="Enter Age"
+        />
+      </label>
+      <input id="subBtn" type="submit" class="btn" disabled />
+    </form>
+    <p id="res">Submit button disable</p>
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#ageinput").keyup(function () {
+          if ($("#ageinput").val() >= 18) {
+            $("#subBtn").attr("disabled", false);
+            $("#res").text("Submit button enable");
+          } else {
+            $("#subBtn").attr("disabled", true);
+            $("#res").text("Submit button disable");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

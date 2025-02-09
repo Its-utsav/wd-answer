@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Creating DIV using jQuery</title>
+    <style>
+      div {
+        border: 2px solid red;
+        margin: 10px;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Creating Div using jQuery</h1>
+    <button>Add Div</button>
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("button").click(function () {
+          var div = $("<div> </div>");
+          div.text("My name is utsav . This Div created using jQuery");
+          $("body").append(div);
+        });
+      });
+    </script>
+  </body>
+</html>

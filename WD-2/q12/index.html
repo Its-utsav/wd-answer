@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Remove all row table excptes first row</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 20px;
+      }
+      #btn {
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        background-color: #eee;
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: center;
+      }
+      th {
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" id="btn">Modify Table</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Course</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Utsav</td>
+          <td>18</td>
+          <td>BCA</td>
+        </tr>
+        <tr>
+          <td>Sam</td>
+          <td>24</td>
+          <td>B. Com</td>
+        </tr>
+        <tr>
+          <td>Elon</td>
+          <td>24</td>
+          <td>BBA</td>
+        </tr>
+        <tr>
+          <td>Parth</td>
+          <td>25</td>
+          <td>MBA</td>
+        </tr>
+        <tr>
+          <td>Ritesh</td>
+          <td>24</td>
+          <td>B. Com</td>
+        </tr>
+        <tr>
+          <td>Pinkesh</td>
+          <td>30</td>
+          <td>B. Tech</td>
+        </tr>
+      </tbody>
+    </table>
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var tableHeadHtml = $("table thead");
+        var table = $("table");
+        $("#btn").click(function () {
+          table.html(tableHeadHtml);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Dropdown select text</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 20px;
+      }
+      p {
+        margin-bottom: 10px;
+      }
+      #c {
+        background-color: lightyellow;
+        padding: 3px 5px;
+        border: 1px solid #ccc;
+      }
+      select {
+        padding: 8px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="res">Currenly selected city <span id="c"></span></p>
+    <form>
+      <select name="city" id="city">
+        <option value="Navsari">Navsari</option>
+        <option value="Surat">Surat</option>
+        <option value="Vapi">Vapi</option>
+        <option value="Valsad">Valsad</option>
+        <option value="Pune">Pune</option>
+      </select>
+    </form>
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        function handleCityChange() {
+          var selectOptions = $("#city option:selected").text();
+          return selectOptions;
+        }
+        $("#city").change(function () {
+          $("#c").text(handleCityChange());
+        });
+        $("#c").text(handleCityChange());
+      });
+    </script>
+  </body>
+</html>

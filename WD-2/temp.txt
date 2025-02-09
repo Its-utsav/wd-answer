@@ -1,0 +1,44 @@
+$(document).ready(function () {
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("GET", "data.xml", false);
+        xhr.send();
+
+        var data = xhr.responseXML;
+        var len = data.children[0].children.length;
+
+        var name =
+          //                       index
+          data.children[0].children[0].getElementsByTagName("Name")[0]
+            .childNodes[0].nodeValue;
+        // console.log(
+        //   data.children[0].children[1].getElementsByTagName("Age")[0]
+        //     .childNodes[0].nodeValue
+        // );
+        var tableBody = $("#res");
+        for (var i = 0; i < len; i++) {
+          var name =
+            data.children[0].children[i].getElementsByTagName("Name")[0]
+              .childNodes[0].nodeValue;
+          var age =
+            data.children[0].children[i].getElementsByTagName("Age")[0]
+              .childNodes[0].nodeValue;
+          var JobTitle =
+            data.children[0].children[i].getElementsByTagName("JobTitle")[0]
+              .childNodes[0].nodeValue;
+
+          var Salary =
+            data.children[0].children[i].getElementsByTagName("Salary")[0]
+              .childNodes[0].nodeValue;
+          console.log(name);
+          var tr = $("<tr></tr>").html(`<td>${name}</td>
+          <!-- name -->
+          <td>${age}</td>
+          <!-- Age -->
+          <td>${JobTitle}</td>
+          <!-- Job -->
+          <td>${Salary}</td>
+          <!-- Salary -->`);
+          tableBody.append(tr);
+        }
+      });

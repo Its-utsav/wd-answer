@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Employees>
+    <Employee>
+        <Name>Utsav Dhimmar</Name>
+        <Age>18</Age>
+        <JobTitle>Software Engineer</JobTitle>
+        <Salary>7500</Salary>
+    </Employee>
+    <Employee>
+        <Name>Sam Altman</Name>
+        <Age>28</Age>
+        <JobTitle>Project Manager</JobTitle>
+        <Salary>8500</Salary>
+    </Employee>
+
+    <Employee>
+        <Name>Elon Musk</Name>
+        <Age>35</Age>
+        <JobTitle>Data Analyst</JobTitle>
+        <Salary>7000</Salary>
+    </Employee>
+
+    <Employee>
+        <Name>John Doe</Name>
+        <Age>25</Age>
+        <JobTitle>Software Engineer</JobTitle>
+        <Salary>8000</Salary>
+    </Employee>
+
+    <Employee>
+        <Name>John Harry</Name>
+        <Age>30</Age>
+        <JobTitle>Data Analyst</JobTitle>
+        <Salary>7000</Salary>
+    </Employee>
+</Employees>
