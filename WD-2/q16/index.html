@@ -26,7 +26,7 @@
     </style>
   </head>
   <body>
-    <table>
+    <table id="res">
       <thead>
         <tr>
           <th>Name</th>
@@ -35,50 +35,25 @@
           <th>Salary</th>
         </tr>
       </thead>
-      <tbody id="res"></tbody>
     </table>
-
     <script>
       $(document).ready(function () {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "data.xml", false);
-        xhr.send();
+        $.getJSON("data.json", function (data) {
+          console.log(data);
+          dataObj = data.Students;
 
-        var data = xhr.responseXML;
-
-        var len = data.getElementsByTagName("Employee");
-
-        var tbRef = $("#res");
-        for (var i = 0; i < len.length; i++) {
-          var name = len[i].getElementsByTagName("Name")[0].textContent;
-          var age = len[i].getElementsByTagName("Age")[0].textContent;
-          var jobTitle = len[i].getElementsByTagName("JobTitle")[0].textContent;
-          var salary = len[i].getElementsByTagName("Salary")[0].textContent;
-
-          var nameTag = $("<td></td>").text(name);
-          var ageTag = $("<td></td>").text(age);
-          var jobTitleTag = $("<td></td>").text(jobTitle);
-          var salaryTag = $("<td></td>").text(salary);
-          // console.log(nameTag);
-
-          // var tr = $("<tr> </tr>").html(`
-          // <td>${name}</td>
-          // <!-- name -->
-          // <td>${age}</td>
-          // <!-- Age -->
-          // <td>${jobTitle}</td>
-          // <!-- Job -->
-          // <td>${salary}</td>
-          // <!-- Salary -->
-          // `);
-          var tr = $("<tr> </tr>");
-          // tr.append([nameTag, ageTag, jobTitleTag, salaryTag]);
-          tr.append(nameTag, ageTag, jobTitleTag, salaryTag);
-          tbRef.append(tr);
-        }
-        $("tr:even").css({
-          backgroundColor: "black",
-          color: "white",
+          var table = $("#res");
+          var tableBody = $("<tbody> </tbody>");
+          $.each(dataObj, function (key, value) {
+            var name = $("<td> </td>").text(value.name);
+            var age = $("<td> </td>").text(value.age);
+            var course = $("<td> </td>").text(value.course);
+            var gender = $("<td> </td>").text(value.gender);
+            console.log(value);
+            var tr = $("<tr> </tr>").append(name, age, course, gender);
+            tableBody.append(tr);
+          });
+          table.append(tableBody);
         });
       });
     </script>

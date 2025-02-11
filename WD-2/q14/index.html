@@ -37,48 +37,46 @@
     <script>
       $(document).ready(function () {
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "data.xml", false);
+        xhr.open("GET", "data.xml", true);
         xhr.send();
-        var data = xhr.responseXML;
-        var len = data.getElementsByTagName("Employee");
         var tbRef = $("#res");
         var ansTag = $("<tbody></tbody>");
-        for (var i = 0; i < len.length; i++) {
-          var name = len[i].getElementsByTagName("Name")[0].textContent;
-          var age = len[i].getElementsByTagName("Age")[0].textContent;
-          var jobTitle = len[i].getElementsByTagName("JobTitle")[0].textContent;
-          var salary = len[i].getElementsByTagName("Salary")[0].textContent;
 
-          var nameTag = $("<td></td>").text(name);
-          var ageTag = $("<td></td>").text(age);
-          var jobTitleTag = $("<td></td>").text(jobTitle);
-          var salaryTag = $("<td></td>").text(salary);
-          // console.log(nameTag);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var data = xhr.responseXML;
+            var rootTag = data.getElementsByTagName("Employee");
+            updateData(rootTag);
+          }
+        };
 
-          // var tr = $("<tr> </tr>").html(`
-          // <td>${name}</td>
-          // <!-- name -->
-          // <td>${age}</td>
-          // <!-- Age -->
-          // <td>${jobTitle}</td>
-          // <!-- Job -->
-          // <td>${salary}</td>
-          // <!-- Salary -->
-          // `);
-          var tr = $("<tr> </tr>").append(
-            nameTag,
-            ageTag,
-            jobTitleTag,
-            salaryTag
-          );
-          ansTag.append(tr);
+        function updateData(rootTag) {
+          for (var i = 0; i < rootTag.length; i++) {
+            var name = rootTag[i].getElementsByTagName("Name")[0].textContent;
+            var age = rootTag[i].getElementsByTagName("Age")[0].textContent;
+            var jobTitle =
+              rootTag[i].getElementsByTagName("JobTitle")[0].textContent;
+            var salary =
+              rootTag[i].getElementsByTagName("Salary")[0].textContent;
+
+            var nameTag = $("<td></td>").text(name);
+            var ageTag = $("<td></td>").text(age);
+            var jobTitleTag = $("<td></td>").text(jobTitle);
+            var salaryTag = $("<td></td>").text(salary);
+            // console.log(nameTag);
+
+            // var tr = $("<tr> </tr>").html(` <td>${name}</td> <td>${age}</td> <td>${jobTitle}</td> <td>${salary}</td>`);
+            var tr = $("<tr> </tr>").append(
+              nameTag,
+              ageTag,
+              jobTitleTag,
+              salaryTag
+            );
+            ansTag.append(tr);
+          }
         }
-        tbRef.append(ansTag);
 
-        $("tr:even").css({
-          backgroundColor: "black",
-          color: "white",
-        });
+        tbRef.append(ansTag);
       });
     </script>
   </body>
