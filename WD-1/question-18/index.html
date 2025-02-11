@@ -148,7 +148,6 @@
           } else {
             nameWarn.textContent = null;
             nameWarn.style.display = "none";
-            valid = true;
           }
 
           var email_at = email.indexOf("@");
@@ -160,7 +159,6 @@
           } else {
             emailWarn.textContent = null;
             emailWarn.style.display = "none";
-            valid = true;
           }
 
           if (isNaN(pnumber) || pnumber.length != 10) {
@@ -170,7 +168,6 @@
           } else {
             phoneWarn.textContent = null;
             phoneWarn.style.display = "none";
-            valid = true;
           }
 
           if (password.length < 4) {
@@ -181,7 +178,6 @@
           } else {
             passWarn.textContent = null;
             passWarn.style.display = "none";
-            valid = true;
           }
 
           if (!gender[0].checked && !gender[1].checked) {
@@ -191,7 +187,6 @@
           } else {
             genderWarn.textContent = null;
             genderWarn.style.display = "none";
-            valid = true;
           }
 
           var temp = 0;
@@ -208,7 +203,6 @@
           } else {
             langWarn.textContent = null;
             langWarn.style.display = "none";
-            valid = true;
           }
 
           if (valid) {
