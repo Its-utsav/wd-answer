@@ -4,31 +4,31 @@
       "name": "Utsav",
       "age": 18,
       "course": "BCA",
-      "gender": "male"
+      "gender": "Male"
     },
     {
       "name": "Elon",
       "age": 22,
       "course": "BTECH",
-      "gender": "male"
+      "gender": "Male"
     },
     {
       "name": "Sarah",
       "age": 21,
       "course": "BCOM",
-      "gender": "female"
+      "gender": "Female"
     },
     {
       "name": "Virat",
       "age": 21,
       "course": "BA",
-      "gender": "male"
+      "gender": "Male"
     },
     {
       "name": "Vamika",
       "age": 27,
       "course": "PHD",
-      "gender": "female"
+      "gender": "Female"
     }
   ]
 }

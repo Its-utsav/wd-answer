@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dropdown select text</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>JSON data</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
       body {
-        height: 100vh;
-        width: 100vw;
+        font-family: sans-serif;
+        margin: 20px;
       }
-
       table {
-        height: 100%;
         width: 100%;
-        text-align: center;
+        border-collapse: collapse;
+        text-align: left;
       }
-      thead {
-        height: 70px;
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+      }
+      th {
+        background-color: #eee;
+        text-align: center;
       }
     </style>
   </head>
   <body>
+    <h1>Student table</h1>
     <table id="res">
       <thead>
         <tr>
           <th>Name</th>
           <th>Age</th>
-          <th>Job Title</th>
-          <th>Salary</th>
+          <th>Course</th>
+          <th>Gender</th>
         </tr>
       </thead>
     </table>
+    <script src="../jquery-3.7.1.min.js"></script>
     <script>
       $(document).ready(function () {
         $.getJSON("data.json", function (data) {
-          console.log(data);
           dataObj = data.Students;
-
           var table = $("#res");
           var tableBody = $("<tbody> </tbody>");
           $.each(dataObj, function (key, value) {
@@ -49,7 +47,6 @@
             var age = $("<td> </td>").text(value.age);
             var course = $("<td> </td>").text(value.course);
             var gender = $("<td> </td>").text(value.gender);
-            console.log(value);
             var tr = $("<tr> </tr>").append(name, age, course, gender);
             tableBody.append(tr);
           });
