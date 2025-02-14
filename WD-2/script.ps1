@@ -1,5 +1,5 @@
 # Get a list of the folders q1 to q19
-$folders = 1..19 | ForEach-Object { "q$_" }
+$folders = 1..20 | ForEach-Object { "q$_" }
 
 # Iterate through each folder
 foreach ($folder in $folders) {

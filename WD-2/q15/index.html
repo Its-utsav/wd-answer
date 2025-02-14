@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+      }
+      th {
+        background-color: #eee;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Student table</h1>
+    <table id="res">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Course</th>
+        </tr>
+      </thead>
+    </table>
+
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var xmlData = `<Students>
+      <Student>
+        <Name>Utsav</Name>
+        <Age>18</Age>
+        <Gender>Male</Gender>
+        <Course>BCA</Course>
+      </Student>
+
+      <Student>
+        <Name>Kevin</Name>
+        <Age>21</Age>
+        <Gender>Male</Gender>
+        <Course>BTech</Course>
+      </Student>
+
+      <Student>
+        <Name>Niddhi</Name>
+        <Age>19</Age>
+        <Gender>Female</Gender>
+        <Course>BCOM</Course>
+      </Student>
+
+      <Student>
+        <Name>Ridhhi</Name>
+        <Age>19</Age>
+        <Gender>Female</Gender>
+        <Course>MBA</Course>
+      </Student>
+
+      <Student>
+        <Name>Hirendra</Name>
+        <Age>26</Age>
+        <Gender>Male</Gender>
+        <Course>Phd</Course>
+      </Student>
+    </Students>`;
+
+        var domParserObj = new DOMParser();
+        var xml = domParserObj.parseFromString(xmlData, "text/xml");
+        var singleData = xml.getElementsByTagName("Student");
+        var tBody = $("<tbody> </tbody>");
+        for (var i = 0; i < singleData.length; i++) {
+          var name = singleData[i].getElementsByTagName("Name")[0].textContent;
+          var nameTag = $("<td> </td>").text(name);
+
+          var age = singleData[i].getElementsByTagName("Age")[0].textContent;
+          var ageTag = $("<td> </td>").text(age);
+
+          var gender =
+            singleData[i].getElementsByTagName("Gender")[0].textContent;
+          var genderTag = $("<td> </td>").text(gender);
+
+          var course =
+            singleData[i].getElementsByTagName("Course")[0].textContent;
+          var courseTag = $("<td> </td>").text(course);
+
+          var tr = $("<tr> </tr>").append(
+            nameTag,
+            ageTag,
+            genderTag,
+            courseTag
+          );
+          tBody.append(tr);
+        }
+        $("table").append(tBody);
+      });
+    </script>
+  </body>
+</html>
