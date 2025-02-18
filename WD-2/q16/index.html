@@ -39,7 +39,7 @@
     <script>
       $(document).ready(function () {
         $.getJSON("data.json", function (data) {
-          dataObj = data.Students;
+          var dataObj = data.Students;
           var table = $("#res");
           var tableBody = $("<tbody> </tbody>");
           $.each(dataObj, function (key, value) {
