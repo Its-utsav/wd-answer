@@ -1,12 +1,22 @@
-var http = require("http")
-var url = require('url')
+var http = require("http");
+var url = require("url");
+
 http.createServer(function (req, res) {
-    res.writeHead(200, { 'content-type': 'text/html' })
-    res.write("<p>Hello world <p>")
-    var q_info = url.parse(req.url, true);
-    var query_data = (q_info.query);
-    // res.write(req.url)
-    res.write("<p> Name : " + query_data.name + " </p>")
-    res.write("<p> age : " + query_data.age + " </p>")
-    res.end()
-}).listen(8000)
+    res.writeHead(200, {
+        "Content-Type": "text/html",
+    });
+
+    var queryData = url.parse(req.url, true).query;
+
+    var name = queryData.name;
+    var age = queryData.age;
+
+    if (name && age) {
+        res.write("<p> Name: " + name + "</p>");
+        res.write("<p> Age: " + age + "</p>");
+    } else {
+        res.write("<p>Please add <b>query parameter</b> . </p>");
+    }
+    console.log("Query parameter");
+    res.end();
+}).listen(3000);

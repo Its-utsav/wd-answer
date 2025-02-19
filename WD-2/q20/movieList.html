@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>All Movies</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="text-center" id="goback">
+        <button class="btn btn-primary" type="button">Go back</button>
+      </div>
+      <table class="table table-hover mt-5">
+        <thead>
+          <tr>
+            <th>Movie Icon</th>
+            <th>Movie Name</th>
+            <th>Movie Descrption</th>
+            <th>Movie Price</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#goback").click(function () {
+          window.history.back();
+        });
+        fetchData();
+        function fetchData() {
+          $.getJSON("data.json", function (data) {
+            var movies = data.movies;
+            console.log(movies);
+            // loop on data and append in table
+            var tbody = $("<tbody> </tbody>");
+            $.each(movies, function (index, element) {
+              var icon = $("<td> </td>");
+              var name = $("<td> </td>").text(element.name);
+              var desc = $("<td> </td>").text(element.description);
+              var price = $("<td> </td>").text(element.price);
+              var tr = $("<tr> </tr>").append(icon, name, desc, price);
+              tbody.append(tr);
+            });
+            $("table").append(tbody);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

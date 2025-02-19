@@ -4,7 +4,7 @@ Client Based Website
 
 1. index.html -> Main entry point for over website
 2. login.html -> Login Page along with proper validation 
-3. movieList.html -> show all available movie 
-4. movieBuy.html -> Buy selected movie
+3. movieList.html -> show all available movie in table format
+4. movieBuy.html -> Buy selected movie use of drop down
 5. registration.html ->  Registration Page along with proper validation 
 6. contact.html / aboutus.html
