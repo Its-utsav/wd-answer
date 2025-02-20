@@ -2,16 +2,172 @@
 <html lang="en">
   <head>
     <title>Registration page</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css" />
   </head>
   <body>
-    <h1 class="display-1">Registration page</h1>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <div class="text-center">
+      <h1 class="display-5">Registration page</h1>
+    </div>
+
+    <div class="container mt-2">
+      <form action="./login.html">
+        <div class="form-group">
+          <label for="username"> Name:</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Enter your name"
+            class="form-control"
+          />
+          <p id="namewarn" class="invalid-feedback" style="display: none"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone: </label>
+          <input
+            type="number"
+            name="userphone"
+            id="phone"
+            placeholder="Enter your Mobile Number"
+            required
+            class="form-control"
+          />
+          <p id="phoneno" class="invalid-feedback" style="display: none"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="age">Age: </label>
+          <input
+            type="number"
+            name="userage"
+            id="age"
+            placeholder="Minimum age 16"
+            required
+            class="form-control"
+          />
+          <p id="ageno" class="invalid-feedback"></p>
+        </div>
+
+        <div class="form-group">
+          <label>Gender:</label>
+          <label class="form-check-label mr-3">
+            <input type="radio" name="gender" value="male" /> Male
+          </label>
+          <label class="form-check-label">
+            <input type="radio" name="gender" value="female" /> Female
+          </label>
+          <p id="genderwarn" class="invalid-feedback" style="display: none"></p>
+        </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <select class="form-control" id="city" title="city">
+            <option value="">Select a city</option>
+            <option value="navsari">Navsari</option>
+            <option value="surat">Surat</option>
+            <option value="vapi">Vapi</option>
+            <option value="valsad">Valsad</option>
+            <option value="dang">Dang</option>
+          </select>
+          <p id="citywarn" class="invalid-feedback" style="display: none"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email: </label>
+          <input
+            type="email"
+            name="useremail"
+            id="email"
+            placeholder="Enter your email"
+            required
+            class="form-control"
+          />
+          <p id="emailwarn" class="invalid-feedback" style="display: none"></p>
+        </div>
+
+        <div class="form-group">
+          <input
+            type="submit"
+            value="Register"
+            class="btn btn-primary"
+            id="RegisterBtn"
+          />
+          <input type="reset" value="Reset" class="btn btn-secondary" />
+        </div>
+      </form>
+    </div>
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("form").submit(handleValidation);
+        function handleValidation(e) {
+          var isValid = true;
+          var username = $("#username").val();
+          if (!username || !isNaN(username)) {
+            $("#namewarn").text("Enter your name");
+            $("#namewarn").css("display", "block");
+            isValid = false;
+          } else {
+            $("#namewarn").text(null);
+            $("#namewarn").css("display", "none");
+          }
+
+          var phone = $("#phone").val();
+          if (phone.length !== 10) {
+            $("#phoneno").text("Phone number should be 10 digits");
+            $("#phoneno").css("display", "block");
+            isValid = false;
+          } else {
+            $("#phoneno").text(null);
+            $("#phoneno").css("display", "none");
+          }
+
+          var age = $("#age").val();
+          if (age < 16) {
+            $("#ageno").text("Minimum age should be 16");
+            $("#ageno").css("display", "block");
+            isValid = false;
+          } else {
+            $("#ageno").text(null);
+            $("#ageno").css("display", "none");
+          }
+
+          var gender = $('input[name="gender"]:checked').val();
+          if (!gender) {
+            $("#genderwarn").text("Please select a gender");
+            $("#genderwarn").css("display", "block");
+            isValid = false;
+          } else {
+            $("#genderwarn").text(null);
+            $("#genderwarn").css("display", "none");
+          }
+
+          var city = $("#city").val();
+          if (!city) {
+            $("#citywarn").text("Please select a city");
+            $("#citywarn").css("display", "block");
+            isValid = false;
+          } else {
+            $("#citywarn").text(null);
+            $("#citywarn").css("display", "none");
+          }
+
+          var email = $("#email").val();
+          var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (!emailPattern.test(email)) {
+            $("#emailwarn").text("Please enter a valid email");
+            $("#emailwarn").css("display", "block");
+            isValid = false;
+          } else {
+            $("#emailwarn").text(null);
+            $("#emailwarn").css("display", "none");
+          }
+
+          if (!isValid) {
+            e.preventDefault();
+          }
+        }
+      });
+    </script>
   </body>
 </html>
