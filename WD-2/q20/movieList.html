@@ -6,13 +6,13 @@
   </head>
   <body>
     <div class="container mt-5">
-      <div class="text-center" id="goback">
-        <button class="btn btn-primary" type="button">Go back</button>
+      <div class="text-center">
+        <button class="btn btn-primary" type="button"  id="goback">Go back</button>
       </div>
-      <table class="table table-hover mt-5">
+      <table class="table table-hover mt-5 table-bordered">
         <thead>
           <tr>
-            <th>Movie Icon</th>
+            <th>Number</th>
             <th>Movie Name</th>
             <th>Movie Descrption</th>
             <th>Movie Price</th>
@@ -31,14 +31,13 @@
         function fetchData() {
           $.getJSON("data.json", function (data) {
             var movies = data.movies;
-            // loop on data and append in table
             var tbody = $("<tbody> </tbody>");
-            $.each(movies, function (index, element) {
-              var icon = $("<td> </td>");
-              var name = $("<td> </td>").text(element.name);
-              var desc = $("<td> </td>").text(element.description);
-              var price = $("<td> </td>").text(element.price);
-              var tr = $("<tr> </tr>").append(icon, name, desc, price);
+            $.each(movies, function (index, movie) {
+              var number = $("<td> </td>").text(index + 1);
+              var name = $("<td> </td>").text(movie.name);
+              var desc = $("<td> </td>").text(movie.description);
+              var price = $("<td> </td>").text(movie.price);
+              var tr = $("<tr> </tr>").append(number, name, desc, price);
               tbody.append(tr);
             });
             $("table").append(tbody);

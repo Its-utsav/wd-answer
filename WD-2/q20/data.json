@@ -1,61 +1,51 @@
 {
   "movies": [
     {
-      "icon": "path/to/avatar.jpg",
       "name": "Avatar: The Way of Water",
       "description": "Jake Sully and Neytiri form a family and fight to protect Pandora.",
       "price": "₹250"
     },
     {
-      "icon": "path/to/interstellar.png",
       "name": "Interstellar",
       "description": "A team of explorers travel through a wormhole in search of a new home for humanity.",
       "price": "₹220"
     },
     {
-      "icon": "path/to/pathan.jpg",
       "name": "Pathaan",
       "description": "An ex-RAW agent is tasked with taking down a terrorist organization.",
       "price": "₹200"
     },
     {
-      "icon": "path/to/jawan.jpeg",
       "name": "Jawan",
       "description": "A vigilante sets out to correct the wrongs in society.",
       "price": "₹230"
     },
     {
-      "icon": "path/to/kgf2.webp",
       "name": "K.G.F: Chapter 2",
       "description": "Rocky's quest for power and control continues.",
       "price": "₹210"
     },
     {
-      "icon": "path/to/rrr.tiff",
       "name": "RRR",
       "description": "A fictional story about two Indian revolutionaries and their fight against the British Raj.",
       "price": "₹240"
     },
     {
-      "icon": "path/to/oppenheimer.jpg",
       "name": "Oppenheimer",
       "description": "The story of J. Robert Oppenheimer and the development of the atomic bomb.",
       "price": "₹260"
     },
     {
-      "icon": "path/to/barbie.png",
       "name": "Barbie",
       "description": "Barbie and Ken leave Barbie Land and travel to the real world.",
       "price": "₹230"
     },
     {
-      "icon": "path/to/ps1.webp",
       "name": "Ponniyin Selvan: Part 1",
       "description": "A historical epic about the Chola dynasty.",
       "price": "₹190"
     },
     {
-      "icon": "path/to/vikram.jpeg",
       "name": "Vikram",
       "description": "A black ops agent is tasked with taking down a drug syndicate.",
       "price": "₹200"
