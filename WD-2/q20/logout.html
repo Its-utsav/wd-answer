@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+</head>
+<body>
+    <h1 id="msg"></h1>
+    <h2 id="greet"></h2>
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET","logout.xml",true)
+            xhr.send();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    var res = xhr.responseXML;
+                    var root = res.getElementsByTagName("Logout");
+                    $("#msg").text(root[0].getElementsByTagName("Message")[0].textContent);
+                    $("#greet").text(root[0].getElementsByTagName("Greet")[0].textContent);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
