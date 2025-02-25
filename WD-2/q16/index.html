@@ -32,6 +32,7 @@
           <th>Age</th>
           <th>Course</th>
           <th>Gender</th>
+          <th>12th Percentage</th>
         </tr>
       </thead>
     </table>
@@ -47,7 +48,8 @@
             var age = $("<td> </td>").text(value.age);
             var course = $("<td> </td>").text(value.course);
             var gender = $("<td> </td>").text(value.gender);
-            var tr = $("<tr> </tr>").append(name, age, course, gender);
+            var per12 = $("<td> </td>").text(value.percentage_12th);
+            var tr = $("<tr> </tr>").append(name, age, course, gender, per12);
             tableBody.append(tr);
           });
           table.append(tableBody);

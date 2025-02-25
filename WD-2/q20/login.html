@@ -15,8 +15,8 @@
           <input
             type="email"
             name="useremail"
-            id="email"
-            placeholder="Enter your email" 
+            id="useremail"
+            placeholder="Enter your email"
             class="form-control"
           />
           <p id="emailwarn" class="invalid-feedback" style="display: none"></p>
@@ -27,35 +27,74 @@
           <input
             type="password"
             name="userpassword"
-            id="password"
+            id="userpassword"
             placeholder="Enter your password"
             class="form-control"
           />
-          <p id="passwordwarn" class="invalid-feedback" style="display: none"></p>  
+          <p
+            id="passwordwarn"
+            class="invalid-feedback"
+            style="display: none"
+          ></p>
         </div>
         <div class="form-group">
           <input
             type="submit"
             value="Register"
-            class="btn btn-primary "
+            class="btn btn-primary"
             id="RegisterBtn"
           />
-          <input type="reset" value="Reset" class="btn btn-secondary" />
+          <input
+            type="reset"
+            id="resetBtn"
+            value="Reset"
+            class="btn btn-secondary"
+          />
         </div>
       </form>
     </div>
     <script src="../jquery-3.7.1.min.js"></script>
-   <script src="validation.js"></script>
-   <script >
-    $(document).ready(function() {
-      $("form").submit(function(e){
-        emailValidation();
-        passwordValidation();
-        if(!isValid){
-          e.preventDefault();
-        }
+    <script src="validation.js"></script>
+    <script>
+      $(document).ready(function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "loginData.xml", true);
+        xhr.setRequestHeader("Content-type", "text/xml");
+        xhr.send();
+        var xmlEmail = null;
+        var xmlPass = null;
+        xhr.onreadystatechange = function () {
+          if (xhr.status == 200 && xhr.readyState == 4) {
+            var res = xhr.responseXML;
+            xmlEmail = res.getElementsByTagName("Email")[0].textContent;
+            xmlPass = res.getElementsByTagName("Password")[0].textContent;
+          }
+        };
+
+        $("#RegisterBtn").click(function validate(e) {
+          var isValid = true;
+          if ($("#useremail").val() != xmlEmail) {
+            $("#emailwarn").css("display", "block").text("Invalid email");
+            isValid = false;
+          } else {
+            $("#emailwarn").css("display", "none").text("");
+          }
+          if ($("#userpassword").val() != xmlPass) {
+            $("#passwordwarn").css("display", "block").text("Invalid password");
+            isValid = false;
+          } else {
+            $("#passwordwarn").css("display", "none").text("");
+          }
+
+          if (!isValid) {
+            e.preventDefault();
+          }
+        });
+        $("#resetBtn").click(function () {
+          $("#passwordwarn").css("display", "none").text("");
+          $("#emailwarn").css("display", "none").text("");
+        });
       });
-    });
-   </script>
+    </script>
   </body>
 </html>

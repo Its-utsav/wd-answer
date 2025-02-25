@@ -23,6 +23,7 @@ function phoneValidation() {
         $("#phoneno").css("display", "none");
     }
 }
+
 function ageValidation() {
     var age = $("#age").val();
     if (age < 16) {
@@ -46,6 +47,7 @@ function genderValidation() {
         $("#genderwarn").css("display", "none");
     }
 }
+
 function cityValidation() {
     var city = $("#city").val();
     if (!city) {
@@ -60,8 +62,8 @@ function cityValidation() {
 
 function emailValidation() {
     var email = $("#email").val();
-    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailPattern.test(email)) {
+
+    if (email.indexOf("@") < 1 || email.lastIndexOf(".") - email.indexOf("@") < 2) {
         $("#emailwarn").text("Please enter a valid email");
         $("#emailwarn").css("display", "block");
         isValid = false;
@@ -70,6 +72,7 @@ function emailValidation() {
         $("#emailwarn").css("display", "none");
     }
 }
+
 function passwordValidation() {
     var password = $("#password").val();
     if (password.length < 8) {
@@ -91,7 +94,6 @@ function handleValidation(e) {
     cityValidation();
     emailValidation();
     passwordValidation();
-    console.log(isValid);
     if (!isValid) {
         e.preventDefault();
     }

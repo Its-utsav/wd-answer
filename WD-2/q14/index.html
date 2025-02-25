@@ -30,6 +30,7 @@
         <tr>
           <th>Name</th>
           <th>Age</th>
+          <th>Gender</th>
           <th>Job Title</th>
           <th>Salary</th>
         </tr>
@@ -56,6 +57,8 @@
           for (var i = 0; i < rootTag.length; i++) {
             var name = rootTag[i].getElementsByTagName("Name")[0].textContent;
             var age = rootTag[i].getElementsByTagName("Age")[0].textContent;
+            var gender =
+              rootTag[i].getElementsByTagName("Gender")[0].textContent;
             var jobTitle =
               rootTag[i].getElementsByTagName("JobTitle")[0].textContent;
             var salary =
@@ -64,9 +67,11 @@
             var ageTag = $("<td></td>").text(age);
             var jobTitleTag = $("<td></td>").text(jobTitle);
             var salaryTag = $("<td></td>").text(salary);
+            var genderTag = $("<td></td>").text(gender);
             var tr = $("<tr></tr>").append(
               nameTag,
               ageTag,
+              genderTag,
               jobTitleTag,
               salaryTag
             );

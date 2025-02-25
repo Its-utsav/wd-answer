@@ -32,6 +32,7 @@
           <th>Age</th>
           <th>Gender</th>
           <th>Course</th>
+          <th>Department</th>
         </tr>
       </thead>
     </table>
@@ -45,6 +46,7 @@
         <Age>18</Age>
         <Gender>Male</Gender>
         <Course>BCA</Course>
+        <Department>IT</Department>
       </Student>
 
       <Student>
@@ -52,6 +54,7 @@
         <Age>21</Age>
         <Gender>Male</Gender>
         <Course>BBA</Course>
+        <Department>Business Administration</Department>
       </Student>
 
       <Student>
@@ -59,6 +62,7 @@
         <Age>19</Age>
         <Gender>Female</Gender>
         <Course>BCOM</Course>
+        <Department>Commerce</Department>
       </Student>
 
       <Student>
@@ -66,6 +70,7 @@
         <Age>24</Age>
         <Gender>Female</Gender>
         <Course>MBA</Course>
+        <Department>Business Administration</Department>
       </Student>
 
       <Student>
@@ -73,33 +78,37 @@
         <Age>26</Age>
         <Gender>Male</Gender>
         <Course>BSC</Course>
+        <Department>Science</Department>
       </Student>
     </Students>`;
 
         var domParserObj = new DOMParser();
         var xml = domParserObj.parseFromString(xmlData, "text/xml");
-        var singleData = xml.getElementsByTagName("Student");
+        var rootTag = xml.getElementsByTagName("Student");
         var tBody = $("<tbody> </tbody>");
-        for (var i = 0; i < singleData.length; i++) {
-          var name = singleData[i].getElementsByTagName("Name")[0].textContent;
+        for (var i = 0; i < rootTag.length; i++) {
+          var name = rootTag[i].getElementsByTagName("Name")[0].textContent;
           var nameTag = $("<td> </td>").text(name);
 
-          var age = singleData[i].getElementsByTagName("Age")[0].textContent;
+          var age = rootTag[i].getElementsByTagName("Age")[0].textContent;
           var ageTag = $("<td> </td>").text(age);
 
-          var gender =
-            singleData[i].getElementsByTagName("Gender")[0].textContent;
+          var gender = rootTag[i].getElementsByTagName("Gender")[0].textContent;
           var genderTag = $("<td> </td>").text(gender);
 
-          var course =
-            singleData[i].getElementsByTagName("Course")[0].textContent;
+          var course = rootTag[i].getElementsByTagName("Course")[0].textContent;
           var courseTag = $("<td> </td>").text(course);
+
+          var dept =
+            rootTag[i].getElementsByTagName("Department")[0].textContent;
+          var deptTag = $("<td> </td>").text(dept);
 
           var tr = $("<tr> </tr>").append(
             nameTag,
             ageTag,
             genderTag,
-            courseTag
+            courseTag,
+            deptTag
           );
           tBody.append(tr);
         }
