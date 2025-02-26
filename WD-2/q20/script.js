@@ -7,16 +7,7 @@ $(document).ready(function () {
         </h1>
       </header>
     </div>`)
-
-  $("head").append(`<style> 
-    body {
-      background-color: #f8f9fa;
-    }
-    .form-group label {
-      font-weight: bold;
-    }
-    .btn {
-      width: 100%;
-    }  
-    </style>`)
+  $("#goback").click(function () {
+    window.history.back();
+  });
 })

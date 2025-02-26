@@ -17,6 +17,6 @@ http.createServer(function (req, res) {
     } else {
         res.write("<p>Please add <b>query parameter</b> . </p>");
     }
-    console.log("Query parameter");
+    console.log("Query parameters ", name, age);
     res.end();
-}).listen(3000);
+}).listen(8000);

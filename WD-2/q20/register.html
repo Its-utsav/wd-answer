@@ -6,7 +6,8 @@
   </head>
   <body>
     <div class="text-center">
-      <h1 class="display-4">Registration page</h1>
+      <h1>Registration page</h1>
+      <button class="btn btn-primary" type="button" id="goback">Go back</button>
     </div>
     <div class="container mt-2">
       <form action="./login.html">
@@ -43,7 +44,6 @@
           />
           <p id="emailwarn" class="invalid-feedback" style="display: none"></p>
         </div>
-
         <div class="form-group">
           <label for="password">Password: </label>
           <input
@@ -70,7 +70,6 @@
           />
           <p id="ageno" class="invalid-feedback"></p>
         </div>
-
         <div class="form-group">
           <label>Gender:</label>
           <label class="form-check-label mr-3">
@@ -93,7 +92,6 @@
           </select>
           <p id="citywarn" class="invalid-feedback" style="display: none"></p>
         </div>
-
         <div class="form-group">
           <input
             type="submit"
@@ -101,15 +99,30 @@
             class="btn btn-primary"
             id="RegisterBtn"
           />
-          <input type="reset" value="Reset" class="btn btn-secondary" />
+          <input
+            type="reset"
+            value="Reset"
+            id="resetBtn"
+            class="btn btn-secondary"
+          />
         </div>
       </form>
     </div>
     <script src="../jquery-3.7.1.min.js"></script>
     <script src="validation.js"></script>
+    <script src="script.js"></script>
     <script>
       $(document).ready(function () {
         $("form").submit(handleValidation);
+        $("#resetBtn").click(function () {
+          $("#namewarn").text("").css("display", "none");
+          $("#phoneno").text("").css("display", "none");
+          $("#emailwarn").text("").css("display", "none");
+          $("#passwordwarn").text("").css("display", "none");
+          $("#ageno").text("").css("display", "none");
+          $("#genderwarn").text("").css("display", "none");
+          $("#citywarn").text("").css("display", "none");
+        });
       });
     </script>
   </body>
