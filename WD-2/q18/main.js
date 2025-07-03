@@ -1,3 +1,5 @@
+// for runing program uncommnet it
+
 // reading file
 // var fs = require("fs");
 // var http = require("http");
@@ -15,7 +17,6 @@
 //         }
 //     });
 // }).listen(8000);
-
 
 // // creating file
 // var fs = require("fs");
@@ -49,7 +50,6 @@
 //     });
 // }).listen(8000);
 
-
 // renaming
 // var fs = require("fs");
 // var http = require("http");
@@ -65,20 +65,19 @@
 //     });
 // }).listen(8000);
 
-
 // delete
 var fs = require("fs");
 var http = require("http");
-http.createServer(function (req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/html' });
+http
+  .createServer(function (req, res) {
+    res.writeHead(200, { "Content-Type": "text/html" });
     fs.unlink("./new-name.txt", function (err) {
-        if (err) {
-            console.log(err);
-            return;
-        }
-        console.log("File deleted succsefully");
-        res.end("File deleted succsefully");
+      if (err) {
+        console.log(err);
+        return;
+      }
+      console.log("File deleted succsefully");
+      res.end("File deleted succsefully");
     });
-}).listen(8000);
-
-
+  })
+  .listen(8000);
